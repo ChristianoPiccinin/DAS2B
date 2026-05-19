@@ -1,55 +1,18 @@
 import logging
 import azure.functions as func
-
 app = func.FunctionApp()
 
-#importar para function principal
+# Importa triggers para registrar as functions no app
 from triggers.extract_cliente import bp as cliente
 from triggers.extract_pedido import bp as pedido
+from triggers.extract_entrega import bp as entrega
+from triggers.extract_representante import bp as representante
 
-#registar 
+# Registrar as azure functions
 app.register_functions(cliente)
+
 app.register_functions(pedido)
 
+app.register_functions(entrega)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# @app.timer_trigger(schedule="0 * * * * *", arg_name="myTimer", run_on_startup=False,
-#               use_monitor=False) 
-# def extract_pedido_item(myTimer: func.TimerRequest) -> None:
-#     logging.info('tabela pedido item.')
-
-
-
-# @app.timer_trigger(schedule="0 * * * * *", arg_name="myTimer", run_on_startup=False,
-#               use_monitor=False) 
-# def extract_produto(myTimer: func.TimerRequest) -> None:
-#     logging.info('tabela produto.')
-
-
-# @app.timer_trigger(schedule="0 * * * * *", arg_name="myTimer", run_on_startup=False,
-#               use_monitor=False) 
-# def extract_regiao(myTimer: func.TimerRequest) -> None:
-#     logging.info('tabela regiao')
-
-# @app.timer_trigger(schedule="0 * * * * *", arg_name="myTimer", run_on_startup=False,
-#               use_monitor=False) 
-# def extract_representante(myTimer: func.TimerRequest) -> None:
-#     logging.info('tabela representante.')
-
-
-
-
-
+app.register_functions(representante)
