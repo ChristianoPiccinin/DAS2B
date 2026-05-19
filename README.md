@@ -14,6 +14,7 @@ Focaremos apenas na base / arquitetura da plataforma de inteligência operaciona
 
 A solução entrega de uma arquitetura base para **visibilidade consolidada e automatizada** de todos os setores da operação.
 
+
 ## 👥 Integrantes da equipe
 
 - Igor Henrique Lorenço - https://github.com/ilorenco 
