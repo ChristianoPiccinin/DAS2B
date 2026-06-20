@@ -1,6 +1,20 @@
 import logging
 import azure.functions as func
+from base import (
+    register_global_observer,
+)
+from base.observers import (
+    LoggingObserver,
+    MetricsObserver,
+    ErrorObserver,
+)
+
 app = func.FunctionApp()
+
+# Register global observers at startup
+register_global_observer(LoggingObserver())
+register_global_observer(MetricsObserver())
+register_global_observer(ErrorObserver())
 
 # Importa triggers para registrar as functions no app
 from triggers.extract_categoria_produto import bp as categoria_produto
