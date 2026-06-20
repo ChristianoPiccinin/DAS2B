@@ -63,5 +63,40 @@ Contém representações visuais da arquitetura do sistema seguindo o modelo C4 
     | ➞ Diagrama_c4_nivel_1.jpg: Visão geral do sistema (contexto)
     | ➞ Diagrama_c4_nivel_2.jpg: Visão dos containers 
 
+## 🧪 Running Tests
+
+Unit tests for the ETL extraction triggers validate three scenarios per trigger: successful extraction, empty source table, and SQL error handling.
+
+### Prerequisites
+
+Ensure your virtual environment is activated and dependencies are installed (see "Local Development" in CLAUDE.md):
+
+```bash
+.venv\Scripts\activate        # Windows
+source .venv/bin/activate     # Linux/Mac
+pip install -r src/requirements.txt
+```
+
+### Run Tests with unittest (built-in)
+
+```bash
+python -m unittest discover -s src -p "test_*.py" -v
+```
+
+### Run Tests with pytest (optional)
+
+If pytest is installed:
+
+```bash
+python -m pytest src/test_triggers.py -v
+```
+
+### Test Coverage
+
+The test suite covers all extraction triggers with three test scenarios per trigger:
+- **Success scenario**: Validates that data extraction, DELETE operation, and INSERT all execute correctly
+- **Empty table scenario**: Validates warning is logged when source table has no data
+- **SQL error scenario**: Validates error is logged and exception is re-raised on database error
+
 
 
