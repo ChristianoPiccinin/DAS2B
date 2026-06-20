@@ -98,5 +98,22 @@ The test suite covers all extraction triggers with three test scenarios per trig
 - **Empty table scenario**: Validates warning is logged when source table has no data
 - **SQL error scenario**: Validates error is logged and exception is re-raised on database error
 
+## 🚀 CI/CD Pipeline
 
+The project uses automated CI/CD workflows for code quality, testing, and deployments:
+
+- **PR Validation**: Automatically runs linting, type checking, and tests on all pull requests
+- **Dev Deployment**: Auto-deploys to dev environment when code merges to main
+- **Staging/Production**: Manual deployment to staging, release-based to production
+
+For detailed instructions on working with the CI/CD pipeline, see [CI/CD Guide](docs/ci-cd-guide.md).
+
+**Quick start:**
+```bash
+# Run quality checks locally before pushing
+pip install -r src/requirements-dev.txt
+ruff check src/
+mypy src/
+pytest tests/
+```
 
